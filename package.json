@@ -1,0 +1,17 @@
+{
+  "name": "calculatorjs",
+  "version": "1.0.0",
+  "description": "OSX calculator done in native javascript",
+  "main": "index.html",
+  "scripts": {
+    "start": "parcel index.html --open",
+    "build": "parcel build index.html"
+  },
+  "dependencies": {
+    "ampersand-dom": "1.5.0"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.6.1"
+  },
+  "keywords": []
+}
