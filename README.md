@@ -3,7 +3,7 @@
 
 ![CalculatorJS](https://i.postimg.cc/3rCyH8Hg/calculator-js.png)
 
-## Getting Starting
+## Getting Started
 Install all npm dependencies
 - `npm run install`
 
