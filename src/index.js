@@ -2,6 +2,11 @@ import "./index.css";
 import Calculator from "./app.js";
 import template from "./template";
 
+/* 
+TODO:   Apply MDAS
+        Downsize font on large digits
+
+*/
 document.getElementById("app").innerHTML = template;
 var calculator = new Calculator();
 document
@@ -36,19 +41,19 @@ document
         item.addEventListener('click', function () {
             switch (this.innerHTML) {
                 case '÷':
-                    calculator.operate('sum');
+                    calculator.operate('/');
                     break;
                 case '×':
-                    calculator.operate('mul');
+                    calculator.operate('*');
                     break;
                 case '−':
-                    calculator.operate('sub');
+                    calculator.operate('-');
                     break;
                 case '+':
-                    calculator.operate('sum');
+                    calculator.operate('+');
                     break;
                 default:
-                    calculator.equals();
+                    calculator.performMath();
             }
         });
     });
@@ -58,3 +63,4 @@ document
     .addEventListener('click', function () {
         document.querySelector('.auto-scaling-text').innerHTML = calculator.numberValue;
     });
+

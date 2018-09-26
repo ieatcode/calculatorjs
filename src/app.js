@@ -1,12 +1,7 @@
 import dom from "ampersand-dom";
 
 export default class Calculator {
-    constructor() {
-        this.numberValue = 0;
-        this.savedValue = 0;
-    }
-
-    operate (operator) {
+    operate(operator) {
         this.operator = operator;
         this.savedValue = this.numberValue;
         this.endofcalc = true;
@@ -24,34 +19,14 @@ export default class Calculator {
         this.numberValue = this.numberValue > 0 ? -Math.abs(this.numberValue) : Math.abs(this.numberValue);
     }
 
-    process(value) {
+    prepend(value) {
         if (value === '●') value = '.';
         this.numberValue = this.numberValue && !this.endofcalc ? this.numberValue + value : value;
         this.endofcalc = false;
     }
 
-    prepend(value) {
-        this.process(value);
-    }
-
-    equals() {
-        switch (this.operator) {
-            case 'sum':
-                this.numberValue = parseFloat(this.savedValue) + parseFloat(this.numberValue);
-                this.endofcalc = true;
-                break;
-            case 'sub':
-                this.numberValue = parseFloat(this.savedValue) - parseFloat(this.numberValue);
-                this.endofcalc = true;
-                break;
-            case 'mul':
-                this.numberValue = parseFloat(this.savedValue) * parseFloat(this.numberValue);
-                this.endofcalc = true;
-                break;
-            case 'div':
-                this.numberValue = parseFloat(this.savedValue) / parseFloat(this.numberValue);
-                this.endofcalc = true;
-                break;
-        }
+    performMath() {
+        this.numberValue = eval(parseFloat(this.savedValue) + this.operator + parseFloat(this.numberValue));
+        this.endofcalc = true;
     }
 }
