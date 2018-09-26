@@ -26,6 +26,7 @@ export default class Calculator {
     }
 
     performMath() {
+        if (!this.savedValue) return this.numberValue;
         this.numberValue = eval(parseFloat(this.savedValue) + this.operator + parseFloat(this.numberValue));
         this.endofcalc = true;
     }
